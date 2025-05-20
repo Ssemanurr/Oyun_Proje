@@ -1,0 +1,4 @@
+repository "Oyun_Proje/Oyun_Proje@18967923524759@cloud"
+  path "/"
+    br "/main"
+    co "/main"
