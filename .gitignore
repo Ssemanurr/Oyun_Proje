@@ -28,4 +28,9 @@
 # Unity editor & Plastic SCM ayarları
 .plastic/
 UserSettings/
+Assets/TextMesh Pro/Examples & Ext# Plastic SCM ve Unity editor ayarları
+.plastic/
+UserSettings/
+
+# TMP Examples & Extras (bize gerek yok)
 Assets/TextMesh Pro/Examples & Extras/
