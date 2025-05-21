@@ -14,6 +14,10 @@ namespace CryingSnow.CheckoutFrenzy
 
         public List<Product> Inventory => inventory;
 
+        private int satisfaction = 100;
+        public int Satisfaction => satisfaction;
+
+
         private Animator animator;
         private NavMeshAgent agent;
 
@@ -232,6 +236,7 @@ namespace CryingSnow.CheckoutFrenzy
             // Higher values mean more tolerance.
             float priceToleranceFactor = 1f + Mathf.Pow(Random.value, 2f);
 
+
             // Calculate the maximum acceptable price based on the product's market price and tolerance.
             decimal maxAcceptablePrice = product.MarketPrice * (decimal)priceToleranceFactor;
 
@@ -240,6 +245,19 @@ namespace CryingSnow.CheckoutFrenzy
 
             // Return true if the custom price is within the acceptable price range, otherwise false.
             return customPrice <= maxAcceptablePrice;
+            
+            if (IsWillingToBuy(product))
+            {
+                inventory.Add(product);
+                IncreaseSatisfaction(3); // More fair and balanced
+            }
+            else
+            {
+                DecreaseSatisfaction(2); // Less punishing
+                string chat = overpricedDialogue.GetRandomLine();
+                chat = chat.Replace("{product}", product.Name);
+                UpdateChatBubble(chat);
+            }
         }
 
         private IEnumerator UpdateQueue()
@@ -337,6 +355,15 @@ namespace CryingSnow.CheckoutFrenzy
             // Start the "CustomerLeave" coroutine to handle the customer leaving the store.
             StartCoroutine(StoreManager.Instance.CustomerLeave(this));
         }
+        public void IncreaseSatisfaction(int amount)
+        {
+            satisfaction = Mathf.Min(satisfaction + amount, 100);
+        }
+        public void DecreaseSatisfaction(int amount)
+        {
+            satisfaction = Mathf.Max(satisfaction - amount, 0);
+        }
+
 
         private IEnumerator LookAt(Transform target)
         {
