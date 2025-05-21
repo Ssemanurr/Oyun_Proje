@@ -25,3 +25,7 @@
 
 # Asset Store dosyaları
 *.unitypackage
+# Unity editor & Plastic SCM ayarları
+.plastic/
+UserSettings/
+Assets/TextMesh Pro/Examples & Extras/
