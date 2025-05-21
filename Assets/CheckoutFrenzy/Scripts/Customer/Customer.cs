@@ -246,7 +246,7 @@ namespace CryingSnow.CheckoutFrenzy
             // Return true if the custom price is within the acceptable price range, otherwise false.
             return customPrice <= maxAcceptablePrice;
             
-            if (IsWillingToBuy(product))
+            if (IsWillingToBuy(product))//i love cupcakes
             {
                 inventory.Add(product);
                 IncreaseSatisfaction(3); // More fair and balanced
