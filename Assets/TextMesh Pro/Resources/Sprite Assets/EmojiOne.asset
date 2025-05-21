@@ -52,7 +52,6 @@ MonoBehaviour:
   materialHashCode: 0
   m_Version: 1.1.0
   m_FaceInfo:
-    m_FaceIndex: 0
     m_FamilyName: 
     m_StyleName: 
     m_PointSize: 0
@@ -356,7 +355,7 @@ MonoBehaviour:
       m_Width: 128
       m_Height: 128
       m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 100
+      m_HorizontalBearingY: 115.6
       m_HorizontalAdvance: 128
     m_GlyphRect:
       m_X: 0
