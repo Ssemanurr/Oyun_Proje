@@ -273,7 +273,7 @@ namespace CryingSnow.CheckoutFrenzy
 
             DataManager.Instance.PlayerMoney -= (decimal)license.Price;
 
-            MissionManager.Instance.UpdateMission(Mission.Goal.License, 1, license.LicenseID);
+            //MissionManager.Instance.UpdateMission(Mission.Goal.License, 1, license.LicenseID);
 
             OnLicensePurchased?.Invoke(license);
 

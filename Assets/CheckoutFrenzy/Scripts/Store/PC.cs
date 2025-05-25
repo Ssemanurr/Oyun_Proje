@@ -192,12 +192,12 @@ namespace CryingSnow.CheckoutFrenzy
                     if (order is Product product)
                     {
                         // Update the "Restock" mission progress for the product.
-                        MissionManager.Instance.UpdateMission(Mission.Goal.Restock, 1, product.ProductID);
+                       // MissionManager.Instance.UpdateMission(Mission.Goal.Restock, 1, product.ProductID);
                     }
                     else if (order is Furniture furniture)
                     {
                         // Update the "Furnish" mission progress for the furniture.
-                        MissionManager.Instance.UpdateMission(Mission.Goal.Furnish, 1, furniture.FurnitureID);
+                        //MissionManager.Instance.UpdateMission(Mission.Goal.Furnish, 1, furniture.FurnitureID);
                     }
                 }
 

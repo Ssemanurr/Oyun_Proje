@@ -33,12 +33,12 @@ namespace CryingSnow.CheckoutFrenzy
             keyIcon.gameObject.SetActive(!isMobileControl);
             panelToggle.gameObject.SetActive(isMobileControl);
 
-            MissionManager.Instance.OnMissionUpdated += UpdateDisplay; // Subscribe to mission update events.
+           // MissionManager.Instance.OnMissionUpdated += UpdateDisplay; // Subscribe to mission update events.
 
             // Get the current mission and mission data.
-            var mission = MissionManager.Instance.GetCurrentMission();
-            var missionData = DataManager.Instance.Data.CurrentMission;
-            UpdateDisplay(mission, missionData); // Initial display update.
+           // var mission = MissionManager.Instance.GetCurrentMission();
+           // var missionData = DataManager.Instance.Data.CurrentMission;
+            //UpdateDisplay(mission, missionData); // Initial display update.
         }
 
         private void Update()
@@ -46,13 +46,13 @@ namespace CryingSnow.CheckoutFrenzy
             if (Input.GetKeyDown(rewardKey))
             {
                 if (!rewardButton.gameObject.activeSelf) return;
-                MissionManager.Instance.AdvanceMission();
+                //MissionManager.Instance.AdvanceMission();
             }
         }
 
         private void OnDisable()
         {
-            MissionManager.Instance.OnMissionUpdated -= UpdateDisplay; // Unsubscribe to prevent memory leaks.
+            //MissionManager.Instance.OnMissionUpdated -= UpdateDisplay; // Unsubscribe to prevent memory leaks.
         }
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace CryingSnow.CheckoutFrenzy
                 if (isMobileControl)
                 {
                     rewardButton.onClick.RemoveAllListeners(); // Remove previous listeners.
-                    rewardButton.onClick.AddListener(MissionManager.Instance.AdvanceMission); // Add listener to advance mission.
+                    //rewardButton.onClick.AddListener(MissionManager.Instance.AdvanceMission); // Add listener to advance mission.
                 }
             }
             else

@@ -6,56 +6,37 @@ namespace CryingSnow.CheckoutFrenzy
 {
     public class StatsDisplay : MonoBehaviour
     {
-        [SerializeField, Tooltip("Text component to display the player's money.")]
-        private TMP_Text moneyDisplay;
-
-        [SerializeField, Tooltip("Text component to display the player / store current level.")]
-        private TMP_Text levelDisplay;
-
-        [SerializeField, Tooltip("Image used as a fill bar to visualize level progress.")]
-        private Image levelFill;
+        [SerializeField] private TMP_Text moneyDisplay;
+        [SerializeField] private TMP_Text levelDisplay;
+        [SerializeField] private Image levelFill;
 
         private void Start()
         {
-            DataManager.Instance.OnMoneyChanged += UpdateMoneyDisplay; // Subscribe to money changed events.
-            DataManager.Instance.OnLevelUp += UpdateLevelDisplay; // Subscribe to level up events.
-            DataManager.Instance.OnExperienceGain += UpdateLevelFill; // Subscribe to experience gain events.
+            DataManager.Instance.OnMoneyChanged += UpdateMoneyDisplay;
 
-            UpdateMoneyDisplay(DataManager.Instance.PlayerMoney); // Initial update of money display.
-            UpdateLevelDisplay(DataManager.Instance.Data.CurrentLevel); // Initial update of level display.
-
-            // Calculate and update the level fill bar.
-            float currentExp = (float)DataManager.Instance.Data.CurrentExperience;
-            int expForNextLevel = DataManager.Instance.CalculateExperienceForNextLevel();
-            float progress = currentExp / expForNextLevel;
-            UpdateLevelFill(progress);
+            UpdateMoneyDisplay(DataManager.Instance.PlayerMoney);
+            UpdateLevelDisplay();
         }
 
-        /// <summary>
-        /// Updates the displayed money amount.
-        /// </summary>
-        /// <param name="amount">The player's current money.</param>
         private void UpdateMoneyDisplay(decimal amount)
         {
-            moneyDisplay.text = $"$ {amount:N2}"; // Format and set the money text.
+            moneyDisplay.text = $"$ {amount:N2}";
         }
 
-        /// <summary>
-        /// Updates the displayed player / store level.
-        /// </summary>
-        /// <param name="level">The player / store current level.</param>
-        private void UpdateLevelDisplay(int level)
+        private void UpdateLevelDisplay()
         {
+            int totalDays = DataManager.Instance.Data.TotalDays;
+            int level = totalDays <= 3 ? 1 : 2;
             levelDisplay.text = $"Level {level}";
+
+            // Level fill göstergesini gizle veya sıfırla çünkü XP sistemi kullanılmıyor
+            levelFill.fillAmount = 1f;
         }
 
-        /// <summary>
-        /// Updates the level fill bar based on experience progress.
-        /// </summary>
-        /// <param name="progress">The normalized experience progress (0-1).</param>
-        private void UpdateLevelFill(float progress)
+        private void Update()
         {
-            levelFill.fillAmount = progress;
+            UpdateLevelDisplay();
         }
     }
 }
+
