@@ -11,6 +11,10 @@
         public SummaryData(decimal currentBalance)
         {
             PreviousBalance = currentBalance;
+            TotalCustomers = 0;
+            TotalRevenues = 0;
+            TotalSpending = 0;
         }
     }
 }
+

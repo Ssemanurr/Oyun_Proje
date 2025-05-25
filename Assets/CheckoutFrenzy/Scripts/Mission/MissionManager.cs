@@ -14,13 +14,9 @@ namespace CryingSnow.CheckoutFrenzy
 
         private void Awake()
         {
-            Instance = this;
-
-            // Create a dictionary with missionId as the key and Mission object as the value
-            missionDict = Resources.LoadAll<Mission>("Missions")
-                .OrderBy(mission => mission.missionId)
-                .ToDictionary(mission => mission.missionId);
+            Destroy(this.gameObject); // Görev sistemi otomatik olarak yok edilecek
         }
+
 
         /// <summary>
         /// Updates the progress of the current mission based on the provided goal type, progress amount, and optional item id.

@@ -7,6 +7,7 @@ namespace CryingSnow.CheckoutFrenzy
     {
         public string StoreName { get; set; }
         public decimal PlayerMoney { get; set; }
+        public int DaysInCurrentLevel = 0;
         public int CurrentLevel { get; set; }
         public int CurrentExperience { get; set; }
 
@@ -55,7 +56,7 @@ namespace CryingSnow.CheckoutFrenzy
             TotalMinutes = totalMinutes;
 
             CurrentSummary = new SummaryData(PlayerMoney);
-            CurrentMission = new MissionData(1);
+            CurrentMission = null;
 
             HiredEmployees = new List<EmployeeType>();
         }
