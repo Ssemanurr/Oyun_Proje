@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 977fe4f7b3506cf4faa369161394f02d, type: 3}
+  m_Name: License03
+  m_EditorClassIdentifier: 
+  licenseId: 3
+  name: License C
+  price: 2000
+  level: 3
+  isOwnedByDefault: 0
+  products:
+  - {fileID: 11400000, guid: 8f671f94b557cef479974ebe83b9fa54, type: 2}
+  - {fileID: 11400000, guid: 9154e5e59abe20643b4b0ac2f636c275, type: 2}
+  - {fileID: 11400000, guid: 172073ee7b2bda04eb5f9c349311f5ff, type: 2}
+  - {fileID: 11400000, guid: f17f876b6e223494b850379646ada3ad, type: 2}
+  requiredLicense: {fileID: 11400000, guid: 20c337e3e162190429b4088af4b1e862, type: 2}
+  Furnitures:
+  - {fileID: 2770913541751347871, guid: 349de6b348cdefd47a09581394c1e0d0, type: 3}
+  - {fileID: 9066712505189224202, guid: c88e96b241386274fb676144dcfb5d04, type: 3}

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 977fe4f7b3506cf4faa369161394f02d, type: 3}
+  m_Name: License02
+  m_EditorClassIdentifier: 
+  licenseId: 2
+  name: License B
+  price: 1000
+  level: 2
+  isOwnedByDefault: 0
+  products:
+  - {fileID: 11400000, guid: 5f9aa0f904f154d4db70c44cd60affeb, type: 2}
+  - {fileID: 11400000, guid: 7ed03bd9441ce564cad32e9952552210, type: 2}
+  - {fileID: 11400000, guid: 0d721ffd79f38e445b83622557474a06, type: 2}
+  - {fileID: 11400000, guid: 21a03a2d783381845853abe544e4d078, type: 2}
+  - {fileID: 11400000, guid: b6668af24c1aa5b4e91e6e3cb4a8c962, type: 2}
+  - {fileID: 11400000, guid: c9b78efa75b79e840a10d8629cb1d34b, type: 2}
+  requiredLicense: {fileID: 11400000, guid: cebd81858a3a1c3458634eb605fcda43, type: 2}
+  Furnitures:
+  - {fileID: 2261307748831282111, guid: 39517702b704802448fad10219df2fd4, type: 3}
+  - {fileID: 9076118699731929657, guid: c68f35b89c9a8a144a81774464c7f4b9, type: 3}
+  - {fileID: 2782425642901546530, guid: 1ef72f68ec1210d4797792da65fadeba, type: 3}
