@@ -1,3 +1,4 @@
+Broom son 
 using UnityEngine;
 using DG.Tweening;
 
@@ -9,13 +10,18 @@ namespace CryingSnow.CheckoutFrenzy
         private Rigidbody body;
         private PlayerController player;
 
-        // Broom'un oyuncu taraf�ndan elde tutulup tutulmad���n� belirten bayrak
+        // Broom'un oyuncu tarafından elde tutulup tutulmadığını belirten bayrak
         public bool IsHeld { get; private set; } = false;
 
         private void Awake()
         {
             gameObject.layer = GameConfig.Instance.InteractableLayer.ToSingleLayer();
             body = GetComponent<Rigidbody>();
+
+            // X ve Z eksenlerindeki rotasyonu kilitle, Y eksenini serbest bırak
+            body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+
+            // Başlangıçta fizik devre dışı
             SetActivePhysics(false);
         }
 
@@ -23,14 +29,17 @@ namespace CryingSnow.CheckoutFrenzy
         {
             this.player = player;
 
-            // Broom elde al�nd�
+            // Broom elde alındı
             SetHeld(true);
 
+            // Tüm çocuk objeleri "held object" layer'ına geçir
             foreach (Transform child in transform)
                 child.gameObject.layer = GameConfig.Instance.HeldObjectLayer.ToSingleLayer();
 
+            // Throw butonunu göster
             UIManager.Instance.ToggleActionUI(ActionType.Throw, true, Throw);
 
+            // Broom'u oyuncunun el noktasına taşı
             transform.SetParent(player.HoldPoint);
             transform.DOLocalMove(Vector3.zero, 0.5f).SetEase(Ease.OutQuint);
             transform.DOLocalRotate(Vector3.zero, 0.5f).SetEase(Ease.OutQuint);
@@ -53,16 +62,27 @@ namespace CryingSnow.CheckoutFrenzy
 
         private void Throw()
         {
+            // Broom'u serbest bırak
             transform.SetParent(null);
+
+            // Fizikleri aktif et
             SetActivePhysics(true);
+
+            // İleri doğru kuvvet uygula
             body.AddForce(transform.forward * 3.5f, ForceMode.Impulse);
 
+            // X/Z eksenindeki rotasyon kilitleri sayesinde dik kalır,
+            // yine de pozisyonu sıfırlayarak tam dik yapalım
+            transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f);
+
+            // Layer'ı varsayılan yap
             foreach (Transform child in transform)
                 child.gameObject.layer = LayerMask.NameToLayer("Default");
 
+            // Throw butonunu gizle
             UIManager.Instance.ToggleActionUI(ActionType.Throw, false, null);
 
-            // Broom elden b�rak�ld�
+            // Broom elden bırakıldı
             SetHeld(false);
 
             player.CurrentState = PlayerController.State.Free;
@@ -74,7 +94,7 @@ namespace CryingSnow.CheckoutFrenzy
             body.isKinematic = !value;
         }
 
-        // Broom'un elde olup olmad���n� d��ar�dan ayarlamak i�in method
+        // Broom'un elde olup olmadığını dışarıdan ayarlamak için method
         public void SetHeld(bool value)
         {
             IsHeld = value;
