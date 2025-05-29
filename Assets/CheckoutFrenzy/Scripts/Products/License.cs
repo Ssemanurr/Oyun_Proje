@@ -22,9 +22,6 @@ namespace CryingSnow.CheckoutFrenzy
         public int Price => price;
         public int Level => level;
         public List<Product> Products => products;
-
-        public List<Furniture> Furnitures; 
-
         public License RequiredLicense => requiredLicense;
 
         private bool CheckPurchased()

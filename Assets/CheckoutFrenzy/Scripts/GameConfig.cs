@@ -25,7 +25,9 @@ namespace CryingSnow.CheckoutFrenzy
 
         [Header("Store Settings")]
         [SerializeField, Tooltip("The default name for the store.")]
-        private string defaultStoreName = "SUPERMARKET";
+
+        HEAD
+        private string defaultStoreName = "AWESOME MART";
 
         [SerializeField, Tooltip("The maximum number of characters allowed for the store name.")]
         private int storeNameMaxCharacters = 15;

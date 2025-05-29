@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,7 +9,6 @@ namespace CryingSnow.CheckoutFrenzy
 {
     public class PCMonitor : MonoBehaviour
     {
-        [Header("Common")]
         [SerializeField] private RectTransform header;
         [SerializeField] private List<GameObject> screens;
         [SerializeField] private List<Button> tabs;
@@ -42,191 +40,163 @@ namespace CryingSnow.CheckoutFrenzy
 
         private void Start()
         {
-            // İlk doldurma
-            PopulateProducts();
-            PopulateFurnitures();
+            StoreManager.Instance.OnLicensePurchased += UpdateProductListing;
 
-            // Dropdownları kur
-            InitializeDropdown<Product.Category>(categoryDropdown, "All Categories", OnCategoryChanged);
-            InitializeDropdown<Section>(sectionDropdown, "All Sections", OnSectionChanged);
-
-            // Lisans ekranı
-            foreach (var license in DataManager.Instance.LicenseDB)
+            foreach (var product in DataManager.Instance.ProductDB)
             {
-                var licUI = Instantiate(licenseListingPrefab, licenseListingParent);
-                licUI.Initialize(license);
+                if (product.HasLicense)
+                    CreateProductListing(product);
             }
 
-            // Sepet işlemleri
+            InitializeDropdown<Product.Category>(categoryDropdown, "All Categories", OnCategoryChanged);
+
+            foreach (var furniture in DataManager.Instance.FurnitureDB)
+            {
+                var furnitureListing = Instantiate(furnitureListingPrefab, furnitureListingParent);
+                furnitureListing.Initialize(furniture);
+                furnitureListings.Add(furnitureListing);
+            }
+
+            InitializeDropdown<Section>(sectionDropdown, "All Sections", OnSectionChanged);
+
+            foreach (var license in DataManager.Instance.LicenseDB)
+            {
+                var licenseListing = Instantiate(licenseListingPrefab, licenseListingParent);
+                licenseListing.Initialize(license);
+            }
+
+            // Cart
             clearCartButton.onClick.AddListener(() => PC.Instance.ClearCart());
             checkoutButton.onClick.AddListener(() => PC.Instance.Checkout());
             PC.Instance.OnCartChanged += HandleCartChanged;
             totalPriceText.text = "Total: $0.00";
 
-            // Tab’ler ve ekran pozisyonları
-            float headerHalf = header.sizeDelta.y * 0.5f;
-            for (int i = 0; i < screens.Count; i++)
+            foreach (var screen in screens)
             {
-                var rect = screens[i].GetComponent<RectTransform>();
-                rect.anchoredPosition = new Vector2(0, -headerHalf);
-                screens[i].SetActive(i == 0);
-                tabs[i].interactable = i != 0;
-                int idx = i;
-                tabs[i].onClick.AddListener(() => ToggleActiveScreen(idx));
+                var screenRect = screen.GetComponent<RectTransform>();
+                float headerHeight = header.sizeDelta.y / 2;
+                screenRect.anchoredPosition = new Vector2(0f, -headerHeight);
+                screen.SetActive(false);
             }
 
-            gameObject.SetActive(false);
-
-            // Lisans satın alınca listelemeleri güncelle
-            StoreManager.Instance.OnLicensePurchased += _ =>
+            for (int i = 0; i < tabs.Count; i++)
             {
-                PopulateProducts();
-                PopulateFurnitures();
-            };
+                int index = i;
+                tabs[i].onClick.AddListener(() =>
+                {
+                    ToggleActiveScreen(index);
+                    AudioManager.Instance.PlaySFX(AudioID.Click);
+                });
+            }
+
+            ToggleActiveScreen(0);
+            gameObject.SetActive(false);
         }
 
-        /// <summary>
-        /// PC ekranını açıp, kapanışta onClose callback'ini tetikler.
-        /// </summary>
-        public void Display(Action onClose)
+        public void Display(System.Action onClose)
         {
             gameObject.SetActive(true);
-            UIManager.Instance.ToggleActionUI(
-                ActionType.Return,
-                true,
-                () =>
-                {
-                    onClose?.Invoke();
-                    gameObject.SetActive(false);
-                    UIManager.Instance.ToggleActionUI(ActionType.Return, false, null);
-                }
-            );
-        }
 
-        #region Ürün Listeleme
-
-        private void PopulateProducts()
-        {
-            // Önceki UI nesnelerini sil
-            foreach (Transform t in productListingParent) Destroy(t.gameObject);
-            productListings.Clear();
-
-            // Sahip olunan lisanslardan açılan ürünleri ekle
-            foreach (var product in DataManager.Instance.ProductDB)
+            UIManager.Instance.ToggleActionUI(ActionType.Return, true, () =>
             {
-                bool unlocked = OwnedLicenses.Any(l => l.Products.Contains(product));
-                if (unlocked)
-                    CreateProductListing(product);
-            }
-
-            OnCategoryChanged(categoryDropdown.value);
+                onClose?.Invoke();
+                gameObject.SetActive(false);
+                UIManager.Instance.ToggleActionUI(ActionType.Return, false, null);
+            });
         }
 
-        private void CreateProductListing(Product product)
-        {
-            var ui = Instantiate(productListingPrefab, productListingParent);
-            ui.Initialize(product);
-            productListings.Add(ui);
-        }
-
-        private void OnCategoryChanged(int idx)
-        {
-            if (idx == 0)
-            {
-                productListings.ForEach(x => x.gameObject.SetActive(true));
-                return;
-            }
-
-            var cat = (Product.Category)(idx - 1);
-            productListings.ForEach(x => x.gameObject.SetActive(x.Category == cat));
-        }
-
-        #endregion
-
-        #region Mobilya Listeleme
-
-        private void PopulateFurnitures()
-        {
-            // Önceki UI nesnelerini sil
-            foreach (Transform t in furnitureListingParent) Destroy(t.gameObject);
-            furnitureListings.Clear();
-
-            // Sahip olunan lisanslardan açılan mobilyaları ekle
-            foreach (var furn in DataManager.Instance.FurnitureDB)
-            {
-                bool unlocked = OwnedLicenses.Any(l => l.Furnitures.Contains(furn));
-                if (unlocked)
-                {
-                    var ui = Instantiate(furnitureListingPrefab, furnitureListingParent);
-                    ui.Initialize(furn);
-                    furnitureListings.Add(ui);
-                }
-            }
-
-            OnSectionChanged(sectionDropdown.value);
-        }
-
-        private void OnSectionChanged(int idx)
-        {
-            if (idx == 0)
-            {
-                furnitureListings.ForEach(x => x.gameObject.SetActive(true));
-                return;
-            }
-
-            var sec = (Section)(idx - 1);
-            furnitureListings.ForEach(x => x.gameObject.SetActive(x.Section == sec));
-        }
-
-        #endregion
-
-        #region Yardımcı Metotlar
-
-        // Lisans listesi: hem başlangıçtan sahip olunanlar, hem satın alınanlar
-        private IEnumerable<License> OwnedLicenses =>
-            DataManager.Instance.LicenseDB
-                .Where(l => l.IsOwnedByDefault || l.IsPurchased);
-
-        private void ToggleActiveScreen(int activeIndex)
+        private void ToggleActiveScreen(int activeScreenIndex)
         {
             for (int i = 0; i < screens.Count; i++)
             {
-                screens[i].SetActive(i == activeIndex);
-                tabs[i].interactable = i != activeIndex;
+                screens[i].SetActive(i == activeScreenIndex);
+                tabs[i].interactable = i != activeScreenIndex;
             }
         }
 
         private void HandleCartChanged(Dictionary<IPurchasable, int> cart)
         {
-            foreach (Transform c in cartItemsParent) Destroy(c.gameObject);
-
-            decimal total = 0;
-            int items = 0;
-
-            foreach (var kvp in cart)
+            foreach (Transform child in cartItemsParent)
             {
-                var ci = Instantiate(cartItemPrefab, cartItemsParent);
-                ci.Initialize(kvp.Key, kvp.Value);
-
-                int qty = (kvp.Key is Product p) ? p.GetBoxQuantity() : 1;
-                total += kvp.Key.Price * qty * kvp.Value;
-                items += kvp.Value;
+                Destroy(child.gameObject);
             }
 
-            totalPriceText.text = $"Total: ${total:N2}";
-            cartLabel.text = items > 0 ? $"Cart<color=#FFB414> ({items})" : "Cart";
+            decimal totalPrice = 0m;
+            int totalItems = 0;
+
+            foreach (var item in cart)
+            {
+                CartItem newCartItem = Instantiate(cartItemPrefab, cartItemsParent);
+                newCartItem.Initialize(item.Key, item.Value);
+
+                int quantity = item.Key is Product product ? product.GetBoxQuantity() : 1;
+                totalPrice += item.Key.Price * quantity * item.Value;
+                totalItems += item.Value;
+            }
+
+            totalPriceText.text = $"Total: ${totalPrice:N2}";
+            cartLabel.text = "Cart";
+            if (totalItems > 0) cartLabel.text += $"<color=#FFB414> ({totalItems})";
         }
 
-        private void InitializeDropdown<TEnum>(TMP_Dropdown dd, string allLabel, UnityAction<int> onVal)
-            where TEnum : Enum
+        private void CreateProductListing(Product product)
         {
-            dd.ClearOptions();
-            var opts = new List<string> { allLabel };
-            opts.AddRange(Enum.GetNames(typeof(TEnum)));
-            dd.AddOptions(opts);
-            dd.onValueChanged.AddListener(onVal);
+            var productListing = Instantiate(productListingPrefab, productListingParent);
+            productListing.Initialize(product);
+            productListings.Add(productListing);
         }
 
-        #endregion
+        private void UpdateProductListing(License license)
+        {
+            foreach (var product in license.Products)
+            {
+                CreateProductListing(product);
+            }
+
+            OnCategoryChanged(categoryDropdown.value);
+        }
+
+        private void InitializeDropdown<TEnum>(TMP_Dropdown dropdown, string allLabel, UnityAction<int> onValueChanged) where TEnum : System.Enum
+        {
+            dropdown.ClearOptions();
+            var options = new List<string> { allLabel };
+            options.AddRange(System.Enum.GetNames(typeof(TEnum)).Select(name => name.ToTitleCase()));
+            dropdown.AddOptions(options);
+            dropdown.onValueChanged.AddListener(onValueChanged);
+        }
+
+        private void OnCategoryChanged(int index)
+        {
+            if (index == 0)
+            {
+                productListings.ForEach(listing => listing.gameObject.SetActive(true));
+                return;
+            }
+
+            var selectedCategory = (Product.Category)(index - 1);
+
+            foreach (var listing in productListings)
+            {
+                bool shouldShow = listing.Category == selectedCategory;
+                listing.gameObject.SetActive(shouldShow);
+            }
+        }
+
+        private void OnSectionChanged(int index)
+        {
+            if (index == 0)
+            {
+                furnitureListings.ForEach(listing => listing.gameObject.SetActive(true));
+                return;
+            }
+
+            var selectedSection = (Section)(index - 1);
+
+            foreach (var listing in furnitureListings)
+            {
+                bool shouldShow = listing.Section == selectedSection;
+                listing.gameObject.SetActive(shouldShow);
+            }
+        }
     }
 }
