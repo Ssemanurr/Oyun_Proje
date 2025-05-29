@@ -15,11 +15,14 @@ MonoBehaviour:
   licenseId: 3
   name: License C
   price: 2000
-  level: 5
+  level: 3
   isOwnedByDefault: 0
   products:
-  - {fileID: 11400000, guid: c9b78efa75b79e840a10d8629cb1d34b, type: 2}
-  - {fileID: 11400000, guid: 6f2f7b0969570b5428e09a67b5989246, type: 2}
-  - {fileID: 11400000, guid: bedb01205d848cf49972ca51ba4a59f5, type: 2}
   - {fileID: 11400000, guid: 8f671f94b557cef479974ebe83b9fa54, type: 2}
-  requiredLicense: {fileID: 0}
+  - {fileID: 11400000, guid: 9154e5e59abe20643b4b0ac2f636c275, type: 2}
+  - {fileID: 11400000, guid: 172073ee7b2bda04eb5f9c349311f5ff, type: 2}
+  - {fileID: 11400000, guid: f17f876b6e223494b850379646ada3ad, type: 2}
+  requiredLicense: {fileID: 11400000, guid: 20c337e3e162190429b4088af4b1e862, type: 2}
+  Furnitures:
+  - {fileID: 2770913541751347871, guid: 349de6b348cdefd47a09581394c1e0d0, type: 3}
+  - {fileID: 9066712505189224202, guid: c88e96b241386274fb676144dcfb5d04, type: 3}
