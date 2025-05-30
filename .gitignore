@@ -1,36 +1,21 @@
-# Unity klasörleri
+# Unity generated folders
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
 [Bb]uild/
 [Bb]uilds/
-[Ll]ogs/
-[Mm]emoryCaptures/
+Logs/
 
-# Kişisel ayar dosyaları
+# Visual Studio / Rider / VSCode
+.vs/
+.vscode/
 *.csproj
-*.unityproj
 *.sln
-*.suo
-*.tmp
 *.user
 *.userprefs
-*.pidb
-*.booproj
-*.svd
 
-# IDE klasörleri
-.vscode/
-.idea/
-
-# Asset Store dosyaları
+# Asset Store packages
 *.unitypackage
-# Unity editor & Plastic SCM ayarları
-.plastic/
-UserSettings/
-Assets/TextMesh Pro/Examples & Ext# Plastic SCM ve Unity editor ayarları
-.plastic/
-UserSettings/
 
-# TMP Examples & Extras (bize gerek yok)
+# TextMeshPro extras (isteğe bağlı)
 Assets/TextMesh Pro/Examples & Extras/
