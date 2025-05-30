@@ -12,7 +12,7 @@
         {
             PreviousBalance = currentBalance;
             TotalCustomers = 0;
-            TotalRevenues = 0;
+            TotalRevenues = 0;//test
             TotalSpending = 0;
         }
     }

@@ -5,6 +5,9 @@ using UnityEngine;
 using Cinemachine;
 using TMPro;
 using DG.Tweening;
+using UnityEngine.UI;
+using CryingSnow.CheckoutFrenzy;
+using CryingSnow.CheckoutFrenzy.sara_code;
 
 namespace CryingSnow.CheckoutFrenzy
 {
@@ -42,6 +45,14 @@ namespace CryingSnow.CheckoutFrenzy
 
         [SerializeField, Tooltip("The Cinemachine Virtual Camera used to focus on the counter during transactions.")]
         private CinemachineVirtualCamera cashierCamera;
+
+        [SerializeField] private PaymentTimerUI paymentTimerUI;
+
+        [SerializeField] private Slider paymentTimerSlider;
+        private float currentTimer = 0f;
+        private bool isPaymentTiming = false;
+
+
 
         public enum State { Standby, Placing, Scanning, CashPay, CardPay }
         public State CurrentState { get; private set; }
@@ -209,14 +220,12 @@ namespace CryingSnow.CheckoutFrenzy
 
                 yield return new WaitForSeconds(duration);
 
-                // Add the CheckoutItem component to the instantiated product model.
                 var checkoutItem = productModel.AddComponent<CheckoutItem>();
-
-                // Add the checkout item to the list of checkout items.
                 checkoutItems.Add(checkoutItem);
 
-                // Initialize the CheckoutItem component with the product data and the scanning handler.
-                checkoutItem.Initialize(product, () => HandleScanning(checkoutItem));
+                var localItem = checkoutItem; //  fix the closure issue
+                checkoutItem.Initialize(product, () => HandleScanning(localItem));
+
             }
 
             SetCurrentState(State.Scanning);
@@ -229,6 +238,11 @@ namespace CryingSnow.CheckoutFrenzy
             UIManager.Instance.ToggleActionUI(ActionType.Return, false, null);
 
             ScanItem(item);
+            currentTimer = 40f;
+            paymentTimerUI.gameObject.SetActive(true);
+
+            isPaymentTiming = true;
+
 
             DataManager.Instance.AddExperience();
 
@@ -240,21 +254,39 @@ namespace CryingSnow.CheckoutFrenzy
 
         private void ScanItem(CheckoutItem item)
         {
+            if (item == null)
+            {
+                Debug.LogError("ScanItem: item is null!");
+                return;
+            }
+            if (item.Product == null)
+            {
+                Debug.LogError("ScanItem: item.Product is null!");
+                return;
+            }
+            if (DataManager.Instance == null || DataManager.Instance.Data == null)
+            {
+                Debug.LogError("ScanItem: DataManager or Data is null!");
+                return;
+            }
+
             checkoutItems.Remove(item);
 
-            // Move the scanned item to the packing point and then destroy it.
+            if (!paymentTimerUI.gameObject.activeSelf)
+            {
+                paymentTimerUI.StartTimer(currentCustomer);
+            }
+
             item.transform.DOMove(transform.TransformPoint(packingPoint), 0.3f)
                 .OnComplete(() => Destroy(item.gameObject));
 
             decimal price = DataManager.Instance.GetCustomProductPrice(item.Product);
             totalPrice += price;
             UpdateMonitorText();
-
-            if (!HasCashier) AudioManager.Instance.PlaySFX(AudioID.Scanner);
-
-            MissionManager.Instance.UpdateMission(Mission.Goal.Revenue, (int)(price * 100));
-            MissionManager.Instance.UpdateMission(Mission.Goal.Sell, 1, item.Product.ProductID);
         }
+
+
+
 
         private IEnumerator AutoScan()
         {
@@ -318,7 +350,7 @@ namespace CryingSnow.CheckoutFrenzy
                 {
                     decimal paymentAmount = customerMoney - totalChange;
                     DataManager.Instance.PlayerMoney += paymentAmount;
-                    MissionManager.Instance.UpdateMission(Mission.Goal.Checkout, 1);
+                    //MissionManager.Instance.UpdateMission(Mission.Goal.Checkout, 1);
                 }
                 else
                 {
@@ -334,7 +366,7 @@ namespace CryingSnow.CheckoutFrenzy
                 if (isComplete)
                 {
                     DataManager.Instance.PlayerMoney += amount;
-                    MissionManager.Instance.UpdateMission(Mission.Goal.Checkout, 1);
+                    //MissionManager.Instance.UpdateMission(Mission.Goal.Checkout, 1);
                 }
                 else
                 {
@@ -354,10 +386,17 @@ namespace CryingSnow.CheckoutFrenzy
                 yield return new WaitUntil(() => isComplete);
                 AudioManager.Instance.PlaySFX(AudioID.Kaching);
             }
+            if (currentCustomer != null)
+            {
+                CustomerSatisfactionTracker.RecordSatisfaction(currentCustomer.Satisfaction);
+                Debug.Log($"[SUCCESS] Customer satisfaction recorded: {currentCustomer.Satisfaction}");
+            }
 
             // Finalize transaction
             currentCustomer.Inventory.Clear();
             currentCustomer = null;
+
+
             totalPrice = 0m;
             customerMoney = 0m;
 
@@ -384,7 +423,13 @@ namespace CryingSnow.CheckoutFrenzy
                 yield return ClearGivenChangeCoroutine(endPosition);
             }
 
+
             SetCurrentState(State.Standby);
+            if (paymentTimerUI.gameObject.activeSelf)
+            {
+                paymentTimerUI.StopTimer();
+            }
+
         }
 
         private void UpdateGivenChange(int amount)

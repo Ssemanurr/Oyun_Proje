@@ -20,6 +20,7 @@ namespace CryingSnow.CheckoutFrenzy
             get => Data.PlayerMoney;
             set
             {
+
                 decimal previousValue = Data.PlayerMoney;
                 Data.PlayerMoney = value;
                 OnMoneyChanged?.Invoke(value);

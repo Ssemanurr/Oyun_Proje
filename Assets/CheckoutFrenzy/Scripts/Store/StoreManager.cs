@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Unity.AI.Navigation;
+using CryingSnow.CheckoutFrenzy.sara_code;
+
 
 namespace CryingSnow.CheckoutFrenzy
 {
@@ -49,9 +51,9 @@ namespace CryingSnow.CheckoutFrenzy
         /// This value is determined by the base maximum number of customers 
         /// plus the sum of additional customers provided by purchased expansions.
         /// </summary>
-        private int maxCustomers => GameConfig.Instance.BaseMaxCustomers + expansions
-            .Take(DataManager.Instance.Data.ExpansionLevel)
-            .Sum(expansion => expansion.AdditionalCustomers);
+        private int maxCustomers => 10 + (DataManager.Instance.Data.TotalDays - 1) * 5;
+
+
 
         private Coroutine spawnCustomerCoroutine;
         private List<Customer> customers = new List<Customer>();
@@ -141,7 +143,7 @@ namespace CryingSnow.CheckoutFrenzy
             while (true)
             {
                 float waitTime = GameConfig.Instance.GetRandomSpawnTime;
-                yield return new WaitForSeconds(waitTime);
+                yield return new WaitForSeconds(waitTime); //  Always yield
 
                 if (isOpen && customers.Count < maxCustomers && shelvingUnits.Count > 0)
                 {
@@ -158,6 +160,7 @@ namespace CryingSnow.CheckoutFrenzy
                 }
             }
         }
+
 
         /// <summary>
         /// Gets the queue number, position, and look direction for the given customer at the checkout counter.
@@ -356,13 +359,9 @@ namespace CryingSnow.CheckoutFrenzy
 
             yield return new WaitWhile(() => customers.Count > 0);
 
-            UIManager.Instance.SummaryScreen.Show(DataManager.Instance.Data.CurrentSummary, (skip) =>
-            {
-                if (skip) SkipToNextDay();
-                else StartCoroutine(ShowSkipDialog());
+            SkipToNextDay();
+            TimeManager.Instance.AllowTimeUpdate = true;
 
-                TimeManager.Instance.AllowTimeUpdate = true;
-            });
 
             AudioManager.Instance.StopBGMQueue();
         }
@@ -370,6 +369,9 @@ namespace CryingSnow.CheckoutFrenzy
         private void SkipToNextDay()
         {
             if (lastTotalDays == DataManager.Instance.Data.TotalDays) DataManager.Instance.Data.TotalDays++;
+
+            lastTotalDays = DataManager.Instance.Data.TotalDays;
+
 
             int hour = openTime.StartHour;
             int minute = openTime.StartMinute;
@@ -401,9 +403,12 @@ namespace CryingSnow.CheckoutFrenzy
             RestartDay();
         }
 
-        private void RestartDay()
+        public void RestartDay()
         {
             isTodayEnded = false;
+
+            // ✅ Reset the time to 8:00 AM to ensure a fresh start
+            TimeManager.Instance.SetTime(8, 0);
 
             DataManager.Instance.Data.CurrentSummary = new SummaryData(DataManager.Instance.PlayerMoney);
 
@@ -412,6 +417,9 @@ namespace CryingSnow.CheckoutFrenzy
             spawnCustomerCoroutine = StartCoroutine(SpawnCustomer());
 
             AudioManager.Instance.PlayBGMQueue();
+
+            TimeManager.Instance.AllowTimeUpdate = true;
+
         }
 
         /// <summary>
@@ -447,6 +455,24 @@ namespace CryingSnow.CheckoutFrenzy
                 .OrderBy(shelf => shelf.Quantity) // Prioritize the most depleted shelf
                 .FirstOrDefault();
         }
+        public void AdvanceLevel()
+        {
+            TimeManager.Instance.GoToNextLevel();
+            UIManager.Instance.HideSummaryPanel();
+            Debug.Log("Advanced to next level");
+            //TimeManager.Instance.AllowTimeUpdate = true;
+
+        }
+
+        public void RepeatLevel()
+        {
+            TimeManager.Instance.RepeatCurrentLevel();
+            UIManager.Instance.HideSummaryPanel();
+            Debug.Log("Repeating current level");
+            //TimeManager.Instance.AllowTimeUpdate = true;
+
+        }
+
 
 #if UNITY_EDITOR
         private void OnDrawGizmosSelected()

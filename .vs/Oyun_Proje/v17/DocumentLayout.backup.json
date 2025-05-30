@@ -1,45 +1,45 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\",
+  "WorkspaceRootPath": "C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\Data\\SummaryData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\CheckoutFrenzy\\Scripts\\Data\\SummaryData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\CheckoutSystem\\CheckoutItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\CheckoutFrenzy\\Scripts\\CheckoutSystem\\CheckoutItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\TimeSystem\\TimeManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\CheckoutFrenzy\\Scripts\\TimeSystem\\TimeManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\Employee\\EmployeeManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\CheckoutFrenzy\\Scripts\\Employee\\EmployeeManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\UI\\SummaryScreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\CheckoutFrenzy\\Scripts\\UI\\SummaryScreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\ProductContainer\\Box.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\CheckoutFrenzy\\Scripts\\ProductContainer\\Box.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\TimeSystem\\TimeRange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\CheckoutFrenzy\\Scripts\\TimeSystem\\TimeRange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\ProductContainer\\Shelf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\CheckoutFrenzy\\Scripts\\ProductContainer\\Shelf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\Data\\FurnitureData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\UI\\PlayerUIBlocker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\CheckoutFrenzy\\Scripts\\UI\\PlayerUIBlocker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\Data\\FurnitureData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\CheckoutFrenzy\\Scripts\\Data\\FurnitureData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\Data\\GameData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\Data\\GameData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\CheckoutFrenzy\\Scripts\\Data\\GameData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\Data\\DataManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\CheckoutFrenzy\\Scripts\\Data\\DataManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\UI\\PC\\FurnitureListing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\UI\\PC\\FurnitureListing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\CheckoutFrenzy\\Scripts\\UI\\PC\\FurnitureListing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\UI\\PC\\ProductListing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\UI\\PC\\ProductListing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\CheckoutFrenzy\\Scripts\\UI\\PC\\ProductListing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\UI\\PC\\PCMonitor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\UI\\PC\\PCMonitor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\CheckoutFrenzy\\Scripts\\UI\\PC\\PCMonitor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -50,123 +50,120 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SummaryScreen.cs",
-              "DocumentMoniker": "C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\UI\\SummaryScreen.cs",
-              "RelativeDocumentMoniker": "Assets\\CheckoutFrenzy\\Scripts\\UI\\SummaryScreen.cs",
-              "ToolTip": "C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\UI\\SummaryScreen.cs",
-              "RelativeToolTip": "Assets\\CheckoutFrenzy\\Scripts\\UI\\SummaryScreen.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAkwEcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T19:32:38.318Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SummaryData.cs",
-              "DocumentMoniker": "C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\Data\\SummaryData.cs",
-              "RelativeDocumentMoniker": "Assets\\CheckoutFrenzy\\Scripts\\Data\\SummaryData.cs",
-              "ToolTip": "C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\Data\\SummaryData.cs",
-              "RelativeToolTip": "Assets\\CheckoutFrenzy\\Scripts\\Data\\SummaryData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Title": "CheckoutItem.cs",
+              "DocumentMoniker": "C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\CheckoutSystem\\CheckoutItem.cs",
+              "RelativeDocumentMoniker": "Assets\\CheckoutFrenzy\\Scripts\\CheckoutSystem\\CheckoutItem.cs",
+              "ToolTip": "C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\CheckoutSystem\\CheckoutItem.cs",
+              "RelativeToolTip": "Assets\\CheckoutFrenzy\\Scripts\\CheckoutSystem\\CheckoutItem.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAAAAcAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T19:31:29.99Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TimeRange.cs",
-              "DocumentMoniker": "C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\TimeSystem\\TimeRange.cs",
-              "RelativeDocumentMoniker": "Assets\\CheckoutFrenzy\\Scripts\\TimeSystem\\TimeRange.cs",
-              "ToolTip": "C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\TimeSystem\\TimeRange.cs",
-              "RelativeToolTip": "Assets\\CheckoutFrenzy\\Scripts\\TimeSystem\\TimeRange.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T18:57:39.023Z",
+              "WhenOpened": "2025-05-25T23:22:02.016Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TimeManager.cs",
-              "DocumentMoniker": "C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\TimeSystem\\TimeManager.cs",
-              "RelativeDocumentMoniker": "Assets\\CheckoutFrenzy\\Scripts\\TimeSystem\\TimeManager.cs",
-              "ToolTip": "C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\TimeSystem\\TimeManager.cs",
-              "RelativeToolTip": "Assets\\CheckoutFrenzy\\Scripts\\TimeSystem\\TimeManager.cs",
-              "ViewState": "AgIAAJIAAAAAAAAAAAAkwKoAAAAAAAAAAAAAAA==",
+              "Title": "EmployeeManager.cs",
+              "DocumentMoniker": "C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\Employee\\EmployeeManager.cs",
+              "RelativeDocumentMoniker": "Assets\\CheckoutFrenzy\\Scripts\\Employee\\EmployeeManager.cs",
+              "ToolTip": "C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\Employee\\EmployeeManager.cs",
+              "RelativeToolTip": "Assets\\CheckoutFrenzy\\Scripts\\Employee\\EmployeeManager.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAACsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T18:54:23.771Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-25T23:10:14.996Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Box.cs",
+              "DocumentMoniker": "C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\ProductContainer\\Box.cs",
+              "RelativeDocumentMoniker": "Assets\\CheckoutFrenzy\\Scripts\\ProductContainer\\Box.cs",
+              "ToolTip": "C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\ProductContainer\\Box.cs",
+              "RelativeToolTip": "Assets\\CheckoutFrenzy\\Scripts\\ProductContainer\\Box.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAE0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-25T23:09:41.191Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Shelf.cs",
+              "DocumentMoniker": "C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\ProductContainer\\Shelf.cs",
+              "RelativeDocumentMoniker": "Assets\\CheckoutFrenzy\\Scripts\\ProductContainer\\Shelf.cs",
+              "ToolTip": "C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\ProductContainer\\Shelf.cs",
+              "RelativeToolTip": "Assets\\CheckoutFrenzy\\Scripts\\ProductContainer\\Shelf.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAADgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-25T23:08:56.377Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "FurnitureData.cs",
-              "DocumentMoniker": "C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\Data\\FurnitureData.cs",
-              "RelativeDocumentMoniker": "Assets\\CheckoutFrenzy\\Scripts\\Data\\FurnitureData.cs",
-              "ToolTip": "C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\Data\\FurnitureData.cs",
-              "RelativeToolTip": "Assets\\CheckoutFrenzy\\Scripts\\Data\\FurnitureData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "PlayerUIBlocker.cs",
+              "DocumentMoniker": "C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\UI\\PlayerUIBlocker.cs",
+              "RelativeDocumentMoniker": "Assets\\CheckoutFrenzy\\Scripts\\UI\\PlayerUIBlocker.cs",
+              "ToolTip": "C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\UI\\PlayerUIBlocker.cs",
+              "RelativeToolTip": "Assets\\CheckoutFrenzy\\Scripts\\UI\\PlayerUIBlocker.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAACIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T18:51:41.025Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-23T11:05:52.446Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "GameData.cs",
-              "DocumentMoniker": "C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\Data\\GameData.cs",
-              "RelativeDocumentMoniker": "Assets\\CheckoutFrenzy\\Scripts\\Data\\GameData.cs",
-              "ToolTip": "C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\Data\\GameData.cs",
-              "RelativeToolTip": "Assets\\CheckoutFrenzy\\Scripts\\Data\\GameData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAqAAAAAAAAAA==",
+              "Title": "FurnitureData.cs",
+              "DocumentMoniker": "C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\Data\\FurnitureData.cs",
+              "RelativeDocumentMoniker": "Assets\\CheckoutFrenzy\\Scripts\\Data\\FurnitureData.cs",
+              "ToolTip": "C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\Data\\FurnitureData.cs",
+              "RelativeToolTip": "Assets\\CheckoutFrenzy\\Scripts\\Data\\FurnitureData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T18:48:42.731Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T18:51:41.025Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "DataManager.cs",
-              "DocumentMoniker": "C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\Data\\DataManager.cs",
-              "RelativeDocumentMoniker": "Assets\\CheckoutFrenzy\\Scripts\\Data\\DataManager.cs",
-              "ToolTip": "C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\Data\\DataManager.cs",
-              "RelativeToolTip": "Assets\\CheckoutFrenzy\\Scripts\\Data\\DataManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "GameData.cs",
+              "DocumentMoniker": "C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\Data\\GameData.cs",
+              "RelativeDocumentMoniker": "Assets\\CheckoutFrenzy\\Scripts\\Data\\GameData.cs",
+              "ToolTip": "C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\Data\\GameData.cs",
+              "RelativeToolTip": "Assets\\CheckoutFrenzy\\Scripts\\Data\\GameData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T17:47:09.702Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "WhenOpened": "2025-05-22T18:48:42.731Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "FurnitureListing.cs",
-              "DocumentMoniker": "C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\UI\\PC\\FurnitureListing.cs",
+              "DocumentMoniker": "C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\UI\\PC\\FurnitureListing.cs",
               "RelativeDocumentMoniker": "Assets\\CheckoutFrenzy\\Scripts\\UI\\PC\\FurnitureListing.cs",
-              "ToolTip": "C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\UI\\PC\\FurnitureListing.cs",
+              "ToolTip": "C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\UI\\PC\\FurnitureListing.cs",
               "RelativeToolTip": "Assets\\CheckoutFrenzy\\Scripts\\UI\\PC\\FurnitureListing.cs",
               "ViewState": "AgIAADUAAAAAAAAAAAAkwFkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T17:38:06.168Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T17:38:06.168Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "ProductListing.cs",
-              "DocumentMoniker": "C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\UI\\PC\\ProductListing.cs",
+              "DocumentMoniker": "C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\UI\\PC\\ProductListing.cs",
               "RelativeDocumentMoniker": "Assets\\CheckoutFrenzy\\Scripts\\UI\\PC\\ProductListing.cs",
-              "ToolTip": "C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\UI\\PC\\ProductListing.cs",
+              "ToolTip": "C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\UI\\PC\\ProductListing.cs",
               "RelativeToolTip": "Assets\\CheckoutFrenzy\\Scripts\\UI\\PC\\ProductListing.cs",
               "ViewState": "AgIAAE4AAAAAAAAAAAAkwGYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -176,9 +173,9 @@
               "$type": "Document",
               "DocumentIndex": 9,
               "Title": "PCMonitor.cs",
-              "DocumentMoniker": "C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\UI\\PC\\PCMonitor.cs",
+              "DocumentMoniker": "C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\UI\\PC\\PCMonitor.cs",
               "RelativeDocumentMoniker": "Assets\\CheckoutFrenzy\\Scripts\\UI\\PC\\PCMonitor.cs",
-              "ToolTip": "C:\\Users\\belka\\OneDrive\\Documents\\GitHub\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\UI\\PC\\PCMonitor.cs",
+              "ToolTip": "C:\\Users\\HpVictus\\Desktop\\oyunproje\\Oyun_Proje\\Assets\\CheckoutFrenzy\\Scripts\\UI\\PC\\PCMonitor.cs",
               "RelativeToolTip": "Assets\\CheckoutFrenzy\\Scripts\\UI\\PC\\PCMonitor.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

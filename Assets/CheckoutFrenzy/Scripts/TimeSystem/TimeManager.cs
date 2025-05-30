@@ -3,6 +3,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 
+
 namespace CryingSnow.CheckoutFrenzy
 {
     public class TimeManager : MonoBehaviour
@@ -70,7 +71,7 @@ namespace CryingSnow.CheckoutFrenzy
 
             if (skipButton != null)
             {
-                skipButton.onClick.RemoveAllListeners();  // ❗ Her şeyden önce kaldır
+                skipButton.onClick.RemoveAllListeners();  // Her şeyden önce kaldır
                 skipButton.onClick.AddListener(() =>
                 {
                     SkipToNextDay();
@@ -87,6 +88,22 @@ namespace CryingSnow.CheckoutFrenzy
 
             if (totalMinutes >= 1080f && !dayEnded)
             {
+                int totalDays = DataManager.Instance.Data.TotalDays;
+
+                if (totalDays == 3)
+                {
+                    //DataManager.Instance.Data.TotalDays++; // ✅ INCREMENT BEFORE summary
+                    ShowLevel1Summary();
+                    return;
+                }
+                else if (totalDays == 8)
+                {
+                    //DataManager.Instance.Data.TotalDays++; // ✅ increment it here too
+                    Debug.Log("🟨 Reached Day 8 - calling ShowLevel2Summary()");
+                    ShowLevel2Summary();
+                    return;
+                }
+
                 dayEnded = true;
                 AllowTimeUpdate = false;
 
@@ -95,10 +112,10 @@ namespace CryingSnow.CheckoutFrenzy
                     skipDialog?.SetActive(false);
                     playerUIBlocker?.Block();
 
-                    SummaryScreen.Instance.Show(new SummaryData(DataManager.Instance.Data.PlayerMoney), skip =>
-                    {
+                    SummaryScreen.Instance.Show(new SummaryData(DataManager.Instance.Data.PlayerMoney), () => {
                         playerUIBlocker?.Unblock();
-                    });
+                    }, isLevel1: false); // 🟢 This is not day 3 or 8 summary
+
 
                     return;
                 }
@@ -117,7 +134,7 @@ namespace CryingSnow.CheckoutFrenzy
         {
             if (dayEnded == false) return;
             dayEnded = false;
-            
+
             if (skipDialog != null)
                 skipDialog.SetActive(false);
 
@@ -141,10 +158,11 @@ namespace CryingSnow.CheckoutFrenzy
 
                 playerUIBlocker?.Block();
 
-                SummaryScreen.Instance.Show(new SummaryData(data.PlayerMoney), skip =>
+                SummaryScreen.Instance.Show(new SummaryData(data.PlayerMoney), () =>
                 {
                     playerUIBlocker?.Unblock();
-                });
+                }, isLevel1: false);
+
 
                 return;
             }
@@ -158,17 +176,18 @@ namespace CryingSnow.CheckoutFrenzy
                 AllowTimeUpdate = false;
                 playerUIBlocker?.Block();
 
-                SummaryScreen.Instance.Show(new SummaryData(data.PlayerMoney), skip =>
+                SummaryScreen.Instance.Show(new SummaryData(data.PlayerMoney), () =>
                 {
                     AllowTimeUpdate = true;
-                });
+                }, isLevel1: false);
+
 
                 return;
             }
 
             AllowTimeUpdate = true;
             playerUIBlocker?.Unblock();
-            
+
 
         }
 
@@ -239,6 +258,104 @@ namespace CryingSnow.CheckoutFrenzy
             System.DateTime currentTime = new System.DateTime(1, 1, 1, Hour, Minute, 0);
             return currentTime.ToString("hh:mm tt", CultureInfo.InvariantCulture);
         }
+
+        private void ShowLevel1Summary()
+        {
+            IsPausedBySummary = true;
+            AllowTimeUpdate = false;
+            dayEnded = true;
+
+            playerUIBlocker?.Block();
+
+            SummaryScreen.Instance.Show(new SummaryData(DataManager.Instance.PlayerMoney), () =>
+            {
+                playerUIBlocker?.Unblock();
+            }, isLevel1: true); // Pass flag
+        }
+
+        private void ShowLevel2Summary()
+        {
+            Debug.Log("🟩 Inside ShowLevel2Summary()");
+            IsPausedBySummary = true;
+            AllowTimeUpdate = false;
+            dayEnded = true;
+
+            playerUIBlocker?.Block();
+
+            if (SummaryScreen.Instance == null)
+            {
+                Debug.LogError("❌ SummaryScreen.Instance is NULL on Day 8");
+                return;
+            }
+
+            SummaryScreen.Instance.Show(new SummaryData(DataManager.Instance.PlayerMoney), () =>
+            {
+                Debug.Log("✅ SummaryScreen callback triggered");
+                playerUIBlocker?.Unblock();
+            }, isLevel1: false); // Final screen
+        }
+
+
+        public void GoToNextLevel()
+        {
+            Debug.Log("⏩ GoToNextLevel Called");
+
+            totalMinutes = 480f;
+
+            DataManager.Instance.Data.CurrentLevel++;
+            DataManager.Instance.Data.DaysInCurrentLevel = 0;
+            DataManager.Instance.Data.TotalDays++;  // ✅ should only add +1
+
+            SetTime(8, 0); // Reset time
+
+            if (UIManager.Instance != null && UIManager.Instance.DayTimeDisplay != null)
+                UIManager.Instance.DayTimeDisplay.UpdateDisplay();
+
+            StoreManager.Instance.RestartDay();
+
+            AllowTimeUpdate = true;
+            IsPausedBySummary = false;
+            dayEnded = false;
+
+            Debug.Log($"[NextLevel] Day: {DataManager.Instance.Data.TotalDays}, Level: {DataManager.Instance.Data.CurrentLevel}, Time: {Hour}:{Minute}");
+        }
+
+
+
+        public void RepeatCurrentLevel()
+        {
+            Debug.Log("🔁 RepeatCurrentLevel Called");
+
+            dayEnded = false;
+            IsPausedBySummary = false;
+            AllowTimeUpdate = true;
+
+            totalMinutes = 480f;
+
+            if (DataManager.Instance.Data.TotalDays >= 8)
+            {
+                DataManager.Instance.Data.CurrentLevel = 2;
+                DataManager.Instance.Data.DaysInCurrentLevel = 0;
+                DataManager.Instance.Data.TotalDays = 4;
+            }
+            else
+            {
+                DataManager.Instance.Data.CurrentLevel = 1;
+                DataManager.Instance.Data.DaysInCurrentLevel = 0;
+                DataManager.Instance.Data.TotalDays = 1;
+            }
+
+            SetTime(8, 0);
+            UIManager.Instance.DayTimeDisplay.UpdateDisplay();
+
+            Debug.Log($"[Repeat] Day: {DataManager.Instance.Data.TotalDays}, Level: {DataManager.Instance.Data.CurrentLevel}, Time: {Hour}:{Minute}");
+
+            StoreManager.Instance.RestartDay();
+            AllowTimeUpdate = true;
+        }
+
+
+
+
     }
 }
-

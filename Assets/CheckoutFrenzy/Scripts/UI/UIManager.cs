@@ -4,6 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using SimpleInputNamespace;
+using TMPro;
+using UnityEngine.SceneManagement;
+using CryingSnow.CheckoutFrenzy;
+
+
 
 namespace CryingSnow.CheckoutFrenzy
 {
@@ -24,6 +29,8 @@ namespace CryingSnow.CheckoutFrenzy
         [Header("Gameplay UI")]
         [SerializeField, Tooltip("Displays information about a box.")]
         private BoxInfo boxInfo;
+
+        [SerializeField]private TMP_Text satisfactionText;
 
         [SerializeField, Tooltip("Displays in-game messages.")]
         private Message message;
@@ -75,6 +82,9 @@ namespace CryingSnow.CheckoutFrenzy
         [SerializeField, Tooltip("Key to pause the game and display the pause menu.")]
         private KeyCode pauseKey = KeyCode.Escape;
 
+
+
+
         public bool IsUIBlockingActions { get; set; }
 
         public Message Message => message;
@@ -87,6 +97,10 @@ namespace CryingSnow.CheckoutFrenzy
         public InteractMessage InteractMessage { get; private set; }
         public VirtualKeyboard VirtualKeyboard => virtualKeyboard;
         public LabelCustomizer LabelCustomizer => labelCustomizer;
+
+        [SerializeField] private DayTimeDisplay dayTimeDisplay;
+        public DayTimeDisplay DayTimeDisplay => dayTimeDisplay;
+
 
         private Canvas canvas;
         private bool isMobileControl;
@@ -102,6 +116,9 @@ namespace CryingSnow.CheckoutFrenzy
         private void Start()
         {
             isMobileControl = GameConfig.Instance.ControlMode == ControlMode.Mobile;
+
+            UpdateSatisfactionDisplay(100f);
+
 
             if (isMobileControl)
             {
@@ -142,6 +159,20 @@ namespace CryingSnow.CheckoutFrenzy
                 else pauseMenu.Open();
             }
         }
+
+        public void UpdateSatisfactionDisplay(float average)
+        {
+            if (satisfactionText == null)
+            {
+                Debug.LogWarning("[UI] satisfactionText reference is NULL!");
+                return;
+            }
+
+            satisfactionText.text = $"Satisfaction: {average:F1}%";
+            Debug.Log($"[UI] Display updated: Satisfaction: {average:F1}%");
+        }
+
+
 
         public void ToggleInteractButton(bool active)
         {
@@ -222,5 +253,27 @@ namespace CryingSnow.CheckoutFrenzy
             chatBubble.Show(chat, speaker);
             return chatBubble;
         }
+
+        public void HideSummaryPanel()
+        {
+            SummaryScreen.Hide();
+        }
+
+        public void ReturnToMainMenu()
+        {
+            SceneManager.LoadScene("MainMenu"); // use your correct main menu scene name
+        }
+        public void OnContinueButton()
+        {
+            TimeManager.Instance.GoToNextLevel();
+        }
+
+        public void OnRepeatButton()
+        {
+            TimeManager.Instance.RepeatCurrentLevel();
+        }
+
+
+
     }
 }

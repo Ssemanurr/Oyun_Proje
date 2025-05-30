@@ -24,7 +24,7 @@ namespace CryingSnow.CheckoutFrenzy
         /// <summary>
         /// Updates the displayed day and time.
         /// </summary>
-        private void UpdateDisplay()
+        public void UpdateDisplay()
         {
             int day = DataManager.Instance.Data.TotalDays; // Get the current day.
             string time = TimeManager.Instance.GetFormattedTime(); // Get the formatted time.
