@@ -283,14 +283,12 @@ namespace CryingSnow.CheckoutFrenzy
             decimal price = DataManager.Instance.GetCustomProductPrice(item.Product);
             totalPrice += price;
             UpdateMonitorText();
-<<<<<<< HEAD
-=======
 
             if (!HasCashier) AudioManager.Instance.PlaySFX(AudioID.Scanner);
 
             //MissionManager.Instance.UpdateMission(Mission.Goal.Revenue, (int)(price * 100));
             //MissionManager.Instance.UpdateMission(Mission.Goal.Sell, 1, item.Product.ProductID);
->>>>>>> main
+
         }
 
 
@@ -358,11 +356,8 @@ namespace CryingSnow.CheckoutFrenzy
                 {
                     decimal paymentAmount = customerMoney - totalChange;
                     DataManager.Instance.PlayerMoney += paymentAmount;
-<<<<<<< HEAD
-                    //MissionManager.Instance.UpdateMission(Mission.Goal.Checkout, 1);
-=======
+
                    // MissionManager.Instance.UpdateMission(Mission.Goal.Checkout, 1);
->>>>>>> main
                 }
                 else
                 {
